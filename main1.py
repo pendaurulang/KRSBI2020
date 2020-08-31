@@ -6,8 +6,8 @@ import serial
 import os
 import imutils
 import RPi.GPIO as GPIO
-import I2C_LCD_driver
-lcd = I2C_LCD_driver.lcd()
+##import I2C_LCD_driver
+##lcd = I2C_LCD_driver.lcd()
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -26,7 +26,7 @@ FRAME_HEIGHT = 240
 #icol = (89, 0, 0, 125, 255, 255)  # Blue
 #icol = (0, 100, 80, 10, 255, 255)   # Red
 #icol = (0, 88, 146, 78, 255, 255)   1 test
-ocol = (0,127, 68, 31, 255, 255)   # New start
+ocol = (0,110, 147, 31, 255, 255)   # New start
 ccol = (92, 108, 159, 255, 255, 255)
 mcol = (137, 54, 154, 190, 150, 255)
 gcol = (0, 0, 128, 255, 39, 255)
@@ -73,7 +73,7 @@ cv2.createTrackbar('highVal3', 'gawang', gcol[5], 255, nothing)
 
 
 # Initialize webcam. Webcam 0 or webcam 1 or ...
-vidCapture = cv2.VideoCapture(1)
+vidCapture = cv2.VideoCapture(0)
 vidCapture.set(cv2.CAP_PROP_FRAME_WIDTH,FRAME_WIDTH)
 vidCapture.set(cv2.CAP_PROP_FRAME_HEIGHT,FRAME_HEIGHT)
 
@@ -221,8 +221,8 @@ while True:
         wrn = "cyan"
     else:
         wrn = "magenta"
-    lcd.lcd_clear()
-    lcd.lcd_display_string(str(wrn),1)
+    ##lcd.lcd_clear()
+    ##lcd.lcd_display_string(str(wrn),1)
 	
     k = cv2.waitKey(5) & 0xFF
     if k == 27:

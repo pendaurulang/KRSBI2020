@@ -14,7 +14,6 @@
 #define line1 A0
 #define line2 A1
 #define balldtc A2
-#define graber A3
 /////////////////////////////////////////////////////////////////////kiper/////
 double Sp=10,pw=255;
 double np=10,ni=2,nd=0,Pv,l_pv,Ts,error=0,l_error=0,l_output,output; //nilai variable pada PID
@@ -27,7 +26,6 @@ int ballsht=50;
 int valballdtc;
 int valline1;
 int valline2;
-int valgrab;
 int rimut = 0;
 int t = 0;
 char a,b,c;
@@ -42,7 +40,6 @@ Serial1.begin(9600);
   pinMode(line1,INPUT); 
   pinMode(line2,INPUT); 
   pinMode(balldtc,INPUT);
-  pinMode(graber,INPUT);
   pinMode(ballgrb,OUTPUT); 
   pinMode(ballsht,OUTPUT);  
   //pwm
@@ -97,13 +94,13 @@ void bluetooth(){
   if (Serial1.available()>0){
     char bluetut= Serial1.read();
     if (bluetut == 'F'){
-      rimut=rimut+1;
+      rimut=1;
+      if (rimut>1){
+        rimut=1;
+      };
     }
     else if (bluetut == 'B'){
       rimut=0;
-      if (rimut>1){
-        rimut=0;
-      };
     } 
     else{
       rimut=rimut;
@@ -112,12 +109,11 @@ void bluetooth(){
 }
 
 void remote(){
-  valgrab=analogRead(graber);
-  if (valgrab>1)
+  if (valballdtc>1)
   {
     if (t==0)
     {
-    motor(1,255,255,255,255);
+    motor(1,255,235,255,255);
     delay(5000);
     t=1;
     }
