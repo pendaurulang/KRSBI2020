@@ -74,39 +74,29 @@ if (rimut==1){remote();}else{setop();};
 
 }
 void monitoring(){
+Serial.print("Oranye: ");
 Serial.print(m/20);
 Serial.print("   ");
+Serial.print("Cyan: ");
 Serial.print(m1/20);
 Serial.print("   ");
+Serial.print("Magenta: ");
 Serial.print(m2/20);
 Serial.print("   ");
+Serial.print("Gawang: ");
 Serial.print(m3/20);
 Serial.print("   ");
+Serial.print("Kostum: ");
 Serial.print(m5);
 Serial.print("   ");
+Serial.print("Ball: ");
 Serial.print(valballdtc);
 Serial.print("   ");
+Serial.print("Remote: ");
 Serial.print(rimut);
 Serial.println("   ");
 }
 
-void bluetooth(){
-  if (Serial1.available()>0){
-    char bluetut= Serial1.read();
-    if (bluetut == 'F'){
-      rimut=1;
-      if (rimut>1){
-        rimut=1;
-      };
-    }
-    else if (bluetut == 'B'){
-      rimut=0;
-    } 
-    else{
-      rimut=rimut;
-    }
-  }
-}
 
 void remote(){
   if (valballdtc>1)
@@ -126,6 +116,24 @@ void remote(){
     t=0;
     motor(0,0,0,0,0);
     }
+}
+
+void bluetooth(){
+  if (Serial1.available()>0){
+    char bluetut= Serial1.read();
+    if (bluetut == 'F'){
+      rimut=1;
+      if (rimut>1){
+        rimut=1;
+      };
+    }
+    else if (bluetut == 'B'){
+      rimut=0;
+    } 
+    else{
+      rimut=rimut;
+    }
+  }
 }
 
 void getimg(){
