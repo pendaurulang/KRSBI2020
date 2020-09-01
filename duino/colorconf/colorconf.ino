@@ -113,7 +113,7 @@ void kondisi1(){
     }
     else 
     {
-    test();
+    test(m,1);
     }
   }else
     {
@@ -211,10 +211,10 @@ void motor(char po, char pwm1, char pwm2, char pwm3, char pwm4) //MOTOR
     analogWrite(3,pwm3);
     analogWrite(2,pwm4);
 }
-void test()
+void test(int obj,int movement)
 {
  
-    Pv=((m/20)+10);
+    Pv=((obj/20)+10);
     error=Sp-Pv;
     output=(np*error)+(ni*(error+l_error)*Ts)+((nd/ys)*(error-l_error));
     l_error=error;
@@ -225,7 +225,7 @@ void test()
     if (ki >pw) {ki=pw;};
     if (ka >pw) {ka=pw;};
     //if (output < 1 ) {output=1;};
-    motor(1,ki,ka,ki,ka); 
+    motor(movement,ki,ka,ki,ka); 
     //Serial.print();   
 }
 
