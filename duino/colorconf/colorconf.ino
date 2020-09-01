@@ -99,7 +99,7 @@ Serial.println("   ");
 
 
 void remote(){
-  kondisi1;
+  kondisi1();
 }
 
 void kondisi1(){
