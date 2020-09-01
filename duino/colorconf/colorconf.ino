@@ -99,6 +99,10 @@ Serial.println("   ");
 
 
 void remote(){
+  kondisi1;
+}
+
+void kondisi1(){
   if (valballdtc>1)
   {
     if (t==0)
