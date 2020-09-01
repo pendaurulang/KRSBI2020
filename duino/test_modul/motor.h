@@ -1,4 +1,32 @@
+#define en0 4 //dpn ka
+#define en1 5
+#define en2 3 //blk ka
+#define en3 2
 
+#define in1 40 //dpnki
+#define in2 41
+#define in3 42  //dpnka
+#define in4 43
+#define in5 30 //blkki
+#define in6 31
+#define in7 32 //blkka
+#define in8 33
+
+void motorinit(){
+  pinMode(en0, OUTPUT);
+  pinMode(en1, OUTPUT);
+  pinMode(en2, OUTPUT);
+  pinMode(en3, OUTPUT);
+  //logic
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(in5, OUTPUT);
+  pinMode(in6, OUTPUT);
+  pinMode(in7, OUTPUT);
+  pinMode(in8, OUTPUT);
+}
 
 void motor(char po, char pwm1, char pwm2, char pwm3, char pwm4) //MOTOR
 {

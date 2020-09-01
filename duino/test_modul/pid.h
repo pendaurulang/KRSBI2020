@@ -1,3 +1,5 @@
+#include "motor.h"
+ 
 double Sp=10,pw=255;
 double np=10,ni=2,nd=0,Pv,l_pv,Ts,error=0,l_error=0,l_output,output; //nilai variable pada PID
 double ys,l;
