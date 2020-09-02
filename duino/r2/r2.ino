@@ -10,7 +10,7 @@
 #define in5 30 //blkki
 #define in6 31
 #define in7 32 //blkka
-#define in8 33
+#define in8 33 
 #define line1 A0
 #define line2 A1
 #define balldtc A2
