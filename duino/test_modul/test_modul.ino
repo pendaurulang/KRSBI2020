@@ -28,9 +28,7 @@ motorinit();
 }
 
 void loop() {
-ys=((millis()-l)/1000); 
-l=millis();
-//jalan();
+initpid();
 bluetooth();
 getimg();
 grabball();

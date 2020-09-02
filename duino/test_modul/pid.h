@@ -5,6 +5,11 @@ double np=10,ni=2,nd=0,Pv,l_pv,Ts,error=0,l_error=0,l_output,output; //nilai var
 double ys,l;
 double ki,ka;
 
+void initpid(){
+  ys=((millis()-l)/1000); 
+  l=millis();
+}
+
 void test(int obj,int movement)
 {
  
