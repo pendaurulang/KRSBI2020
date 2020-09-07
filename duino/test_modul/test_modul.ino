@@ -1,12 +1,12 @@
 #include "motor.h"
 #include "pid.h"
 #include "serialparse.h"
+#include "ballshot.h"
 
 #define line1 A0
 #define line2 A1
 #define balldtc A2
 int ballgrb=51;
-int ballsht=50;
 int valballdtc;
 int valline1;
 int valline2;
@@ -17,9 +17,10 @@ char bluetut;
 
 
 void setup() {
-serialinit();
-Serial1.begin(9600);
-motorinit();
+  ballshot_init();
+  serialinit();
+  motorinit();
+  Serial1.begin(9600);
   pinMode(line1,INPUT); 
   pinMode(line2,INPUT); 
   pinMode(balldtc,INPUT);
@@ -111,9 +112,7 @@ valballdtc = analogRead(balldtc);
   if (valballdtc < 150 && valballdtc != 0 ){
     digitalWrite(ballgrb, HIGH);
     delay(2000);
-    digitalWrite(ballsht, HIGH);
-    delay(50);
-    digitalWrite(ballsht, LOW);
+    tendang();
     }
     else
   digitalWrite(ballgrb, LOW);
