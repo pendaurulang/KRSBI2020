@@ -52,7 +52,7 @@ void motor(char po, char pwm1, char pwm2, char pwm3, char pwm4) //MOTOR
     digitalWrite(in7, HIGH);
     digitalWrite(in8, LOW);
   };
-  if (p == 2) //mundur
+  if (po == 2) //mundur
   {
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);

@@ -1,4 +1,3 @@
-#include "motor.h"
 #include "pid.h"
 #include "serialparse.h"
 #include "ballshot.h"
@@ -90,6 +89,18 @@ void kondisi1() {
     t = 0;
     motor(0, 0, 0, 0, 0);
   }
+}
+
+void kondisi2() {  //kondisi 2
+  if (grabball == 0) {
+    if (m1 < 1) {
+      motor(6, 255, 255, 255, 255);
+      delay(5000);
+      tendang();
+    }
+  }
+  else
+    kondisi1();//
 }
 
 void kondisi1r2() {
