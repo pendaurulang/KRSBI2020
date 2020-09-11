@@ -1,12 +1,3 @@
-#include "pid.h"
-#include "serialparse.h"
-#include "ballshot.h"
-
-#define line1 A0
-#define line2 A1
-#define balldtc A2
-
-int ballgrb = 51;
 int valballdtc;
 int valline1;
 int valline2;
@@ -14,7 +5,20 @@ int rimut = 0;
 int t = 0;
 int usbread;
 char bluetut;
+String kondisi = "null";
 
+#define line1 A0
+#define line2 A1
+#define balldtc A2
+#define ballgrb 51
+
+#include "pid.h"
+#include "serialparse.h"
+#include "ballshot.h"
+
+#include "robot1.h"
+#include "robot2.h"
+#include "kiper.h"
 
 void setup() {
   ballshot_init();
@@ -30,6 +34,7 @@ void setup() {
 
 void loop() {
   initpid();
+  readline();
   bluetooth();
   getimg();
   grabball();
@@ -42,6 +47,12 @@ void loop() {
   };
 
 }
+void readline() {
+  valline1 = analogRead(line1);
+  valline2 = analogRead(line2);
+  valballdtc = analogRead(balldtc);
+}
+
 void monitoring() {
   Serial.print("Oranye: ");
   Serial.print(m / 20);
@@ -61,59 +72,23 @@ void monitoring() {
   Serial.print("Ball: ");
   Serial.print(valballdtc);
   Serial.print("   ");
+  Serial.print("line 1: ");
+  Serial.print(valline1);
+  Serial.print("   ");
+  Serial.print("line 2: ");
+  Serial.print(valline2);
+  Serial.print("   ");
   Serial.print("Remote: ");
   Serial.print(rimut);
+  Serial.print("   ");
+  Serial.print("kondisi: ");
+  Serial.print(kondisi);
   Serial.println("   ");
 }
 
 
 void remote() {
-  kondisi1();
-}
-
-void kondisi1() {
-  if (valballdtc > 1)
-  {
-    if (t == 0)
-    {
-      motor(1, 255, 235, 255, 255);
-      delay(5000);
-      t = 1;
-    }
-    else
-    {
-      test(m, 1);
-    }
-  } else
-  {
-    t = 0;
-    motor(0, 0, 0, 0, 0);
-  }
-}
-
-void kondisi2() {  //kondisi 2
-  if (grabball == 0) {
-    if (m1 < 1) {
-      motor(6, 255, 255, 255, 255);
-      delay(5000);
-      tendang();
-    }
-  }
-  else
-    kondisi1();//
-}
-
-void kondisi1r2() {
-  if (m1 > 0) {
-    motor(5, 200, 200, 200, 200);
-  }
-  else if (m1 < 0) {
-    motor(6, 200, 200, 200, 200);
-  }
-  else {
-    motor(0, 0, 0, 0, 0);
-    delay(5000);
-  };
+  kondisi1r2();
 }
 
 void bluetooth() {
@@ -136,8 +111,6 @@ void bluetooth() {
 
 
 void grabball() {
-  valballdtc = analogRead(balldtc);
-  //Serial.println(valballdtc);
   if (valballdtc < 150 && valballdtc != 0 ) {
     digitalWrite(ballgrb, HIGH);
     //delay(2000);
@@ -145,30 +118,4 @@ void grabball() {
   }
   else
     digitalWrite(ballgrb, LOW);
-}
-void setop() {
-  {
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, LOW);
-    digitalWrite(in5, LOW);
-    digitalWrite(in6, LOW);
-    digitalWrite(in7, LOW);
-    digitalWrite(in8, LOW);
-  };
-}
-
-//recently not used
-void kiper() {
-  double z = m / 20;
-  if (z == 1 || z == -1 || z > 13 || z < -13) {
-    motor(0, 0, 0, 0, 0);
-  };
-  if (z > 1 && z < 13) {
-    motor(3, pw, pw, pw, pw);
-  };
-  if (z < -1 && z > -13) {
-    motor(4, pw, pw, pw, pw);
-  };
 }

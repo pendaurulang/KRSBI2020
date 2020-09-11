@@ -113,3 +113,18 @@ void motor(char po, char pwm1, char pwm2, char pwm3, char pwm4) //MOTOR
   analogWrite(3, pwm3);
   analogWrite(2, pwm4);
 }
+
+
+
+void setop() {
+  {
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, LOW);
+    digitalWrite(in5, LOW);
+    digitalWrite(in6, LOW);
+    digitalWrite(in7, LOW);
+    digitalWrite(in8, LOW);
+  };
+}
