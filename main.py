@@ -11,7 +11,7 @@ lcd = I2C_LCD_driver.lcd()
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-usbcom = serial.Serial('/dev/ttyACM0',9600)
+usbcom = serial.Serial('/dev/ttyACM1',9600)
 
 def nothing(*arg):
         pass

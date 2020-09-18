@@ -17,6 +17,9 @@ void monitoring() {
   Serial.print("Ball: ");
   Serial.print(valballdtc);
   Serial.print("   ");
+  Serial.print("BallGrb: ");
+  Serial.print(valballdtcgrb);
+  Serial.print("   ");
   Serial.print("line 1: ");
   Serial.print(valline1);
   Serial.print("   ");

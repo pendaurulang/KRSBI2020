@@ -1,5 +1,6 @@
 String kondisi = "null";
 int kondisi_set = 0;
+int line_thd1 = 57;
 
 #include "sensor.h"
 //#include "bluetooth.h"
@@ -19,23 +20,23 @@ void setup() {
   ballshot_init();
   serialinit();
   motorinit();
-//  bluetooth_init();
+  //  bluetooth_init();
 }
 
 void loop() {
   initpid();
   readsensor();
-//  bluetooth();
+  //  bluetooth();
   getimg();
   grabball();
   monitoring();
   remote();
 
-//  if (rimut == 1) {
-//    remote();
-//  } else {
-//    setop();
-//  };
+  //  if (rimut == 1) {
+  //    remote();
+  //  } else {
+  //    setop();
+  //  };
 
 }
 
@@ -45,35 +46,35 @@ void remote() {
 
 void robot1() {
   kondisi_set = 1;
-  if (kondisi_set = 1) {
+  if (kondisi_set == 1) {
     kondisi1();
   }
-  if (kondisi_set = 2) {
+  if (kondisi_set == 2) {
     kondisi2();
   }
-  if (kondisi_set = 3) {
-//    kondisi3();
+  if (kondisi_set == 3) {
+    //    kondisi3();
   }
-  if (kondisi_set = 4) {
-//    kondisi4();
+  if (kondisi_set == 4) {
+    //    kondisi4();
   }
-  if (kondisi_set = 5) {
-//    kondisi5();
+  if (kondisi_set == 5) {
+    //    kondisi5();
   }
-  if (kondisi_set = 6) {
-//    kondisi6();
+  if (kondisi_set == 6) {
+    //    kondisi6();
   }
 }
 
 void robot2() {
   kondisi_set = 11;
-  if (kondisi_set = 11) {
+  if (kondisi_set == 11) {
     kondisi1r2();
   }
-  if (kondisi_set = 12) {
+  if (kondisi_set == 12) {
     kondisi2r2();
   }
-  if (kondisi_set = 13) {
+  if (kondisi_set == 13) {
     kondisi3r2();
   }
 }

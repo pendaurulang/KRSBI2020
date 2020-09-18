@@ -5,7 +5,7 @@ void ballgrab_init() {
 }
 
 void grabball() {
-  if (valballdtcgrb < 150 && valballdtcgrb != 0 ) {
+  if (valballdtcgrb < 150) {
     digitalWrite(ballgrb, HIGH);
     //delay(2000);
     //tendang();

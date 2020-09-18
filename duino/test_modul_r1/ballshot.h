@@ -1,9 +1,13 @@
-int ballsht=50;
-int ballpass=7;
+int ballsht=7;
+int ballpass=50;
+
+
 
 void ballshot_init(){
   pinMode(ballsht,OUTPUT);
   pinMode(ballpass,OUTPUT);
+  digitalWrite(ballsht, LOW);
+  digitalWrite(ballpass, LOW);
 }
 void tendang(){
   digitalWrite(ballsht, HIGH);
