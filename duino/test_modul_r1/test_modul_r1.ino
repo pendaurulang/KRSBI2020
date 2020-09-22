@@ -20,6 +20,7 @@ void setup() {
   ballshot_init();
   serialinit();
   motorinit();
+  kondisi_set = 1;
   //  bluetooth_init();
 }
 
@@ -45,25 +46,31 @@ void remote() {
 }
 
 void robot1() {
-  kondisi_set = 1;
-  if (kondisi_set == 1) {
-    kondisi1();
-  }
-  if (kondisi_set == 2) {
-    kondisi2();
-  }
-  if (kondisi_set == 3) {
-    //    kondisi3();
-  }
-  if (kondisi_set == 4) {
-    //    kondisi4();
+
+  if (kondisi_set==6) {
+//        kondisi6();
   }
   if (kondisi_set == 5) {
-    //    kondisi5();
+//    kondisi5();
+      kondisi_set = 5;
   }
-  if (kondisi_set == 6) {
-    //    kondisi6();
+  if (kondisi_set == 4) {
+    //kondisi4();
+    kondisi_set = 4;
   }
+  if (kondisi_set == 3) {
+    kondisi_set = 3;
+    kondisi3();
+  }
+  if (kondisi_set == 2) {
+    kondisi_set = 2;
+    kondisi2();
+  }
+  if (kondisi_set == 1){
+    kondisi_set = 1;
+    kondisi1();
+  }
+  
 }
 
 void robot2() {
