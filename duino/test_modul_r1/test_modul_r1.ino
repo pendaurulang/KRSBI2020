@@ -1,10 +1,12 @@
 String kondisi = "null";
 int kondisi_set = 0;
-int line_thd1 = 57;
+int line_thd1 = 57; //kalibrasi sensor garis
+int ball_thd1 = 150; //kalibrasi sensor bola (ball grab)
 
 #include "sensor.h"
 //#include "bluetooth.h"
 #include "pid.h"
+#include "rotate.h"
 #include "serialparse.h"
 #include "ballgrab.h"
 #include "ballshot.h"
@@ -47,12 +49,12 @@ void remote() {
 
 void robot1() {
 
-  if (kondisi_set==6) {
-//        kondisi6();
+  if (kondisi_set == 6) {
+    //        kondisi6();
   }
   if (kondisi_set == 5) {
-//    kondisi5();
-      kondisi_set = 5;
+    //    kondisi5();
+    kondisi_set = 5;
   }
   if (kondisi_set == 4) {
     //kondisi4();
@@ -66,11 +68,11 @@ void robot1() {
     kondisi_set = 2;
     kondisi2();
   }
-  if (kondisi_set == 1){
+  if (kondisi_set == 1) {
     kondisi_set = 1;
     kondisi1();
   }
-  
+
 }
 
 void robot2() {
