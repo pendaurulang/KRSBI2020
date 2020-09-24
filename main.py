@@ -26,10 +26,10 @@ FRAME_HEIGHT = 240
 #icol = (89, 0, 0, 125, 255, 255)  # Blue
 #icol = (0, 100, 80, 10, 255, 255)   # Red
 #icol = (0, 88, 146, 78, 255, 255)   1 test
-ocol = (0,127, 68, 31, 255, 255)   # New start
-ccol = (87, 245, 159, 255, 255, 255)
-mcol = (156, 114, 134, 190, 150, 255)
-gcol = (0, 0, 128, 255, 39, 255)
+ocol = (0,47, 123, 31, 255, 255)   # New start
+ccol = (89, 211, 159, 255, 255, 255)
+mcol = (146, 50, 131, 255, 255, 255)
+gcol = (39, 10, 153, 255, 99, 255)
 
 cv2.namedWindow('orange')
 # Lower range colour sliders.
@@ -207,6 +207,7 @@ while True:
     except NameError:
         gawang=1000 
 
+    #usbcom.open()
     usbcom.write(str('a').encode("utf-8"))
     usbcom.write(str(o).encode("utf-8"))
     usbcom.write(str('b').encode("utf-8"))
@@ -220,10 +221,11 @@ while True:
 
 # data reading
 
-    read_serial=usbcom.readline()
-    serial_data = str(read_serial,'cp1252')
-	data = serial_data.split('_')
-	kondisi = data[10]
+    # read_serial=usbcom.readline()
+    # serial_data = str(read_serial,'cp1252')
+    # data = serial_data.split('_')
+    # kondisi = data[10]
+    # usbcom.close()
 
 
 
@@ -233,13 +235,14 @@ while True:
         wrn = "magenta"
     lcd.lcd_clear()
     lcd.lcd_display_string(str(wrn),1)
-    lcd.lcd_display_string(str(kondisi),1)
+    # lcd.lcd_display_string(str(kondisi),1)
 	
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
         break
     print('fps - ', 1/(time.time() - timeCheck))
-    print('Orange: ',o,'  ','Cyan: ',c,'  ','Magenta: ',m,'  ','Gawang: ',gawang,'  ','Kostum: ',wrn,'  ','grab1: ',data[6],'  ','grab2: ',data[7],'  ','line1: ',data[8],'  ','line2: ',data[9],'  ','kondisi: ',data[10],'  ','Kode: ',data[11])
+    print('Orange: ',o,'  ','Cyan: ',c,'  ','Magenta: ',m,'  ','Gawang: ',gawang,'  ','Kostum: ',wrn)
+    # print('Orange: ',o,'  ','Cyan: ',c,'  ','Magenta: ',m,'  ','Gawang: ',gawang,'  ','Kostum: ',wrn,'  ','grab1: ',data[6],'  ','grab2: ',data[7],'  ','line1: ',data[8],'  ','line2: ',data[9],'  ','kondisi: ',data[10],'  ','Kode: ',data[11])
 
 cv2.destroyAllWindows()
 vidCapture.release()

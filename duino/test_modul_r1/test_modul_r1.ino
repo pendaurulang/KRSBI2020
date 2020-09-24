@@ -44,6 +44,7 @@ void loop() {
 }
 
 void remote() {
+  //  kondisi1();
   robot1();
 }
 
@@ -53,11 +54,11 @@ void robot1() {
     //        kondisi6();
   }
   if (kondisi_set == 5) {
-    //    kondisi5();
+    kondisi5();
     kondisi_set = 5;
   }
   if (kondisi_set == 4) {
-    //kondisi4();
+    kondisi4();
     kondisi_set = 4;
   }
   if (kondisi_set == 3) {

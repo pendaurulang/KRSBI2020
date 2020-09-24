@@ -1,10 +1,10 @@
 void kondisi1r2() {
   kondisi = "kondisi 1 r2";
   kondisi_set = 11;
-  if (m1 > 0) {
+  if (m1 > 20) {
     motor(5, 200, 200, 200, 200);
   }
-  else if (m1 < 0) {
+  else if (m1 < -20) {
     motor(6, 200, 200, 200, 200);
   }
   else {
@@ -28,10 +28,10 @@ void kondisi2r2() {
 void kondisi3r2() {
   kondisi = "kondisi 3 r2";
   kondisi_set = 13;
-  if (m1 > 0) {
+  if (m1 > 20) {
     motor(5, 200, 200, 200, 200);
   }
-  else if (m1 < 0) {
+  else if (m1 < -20) {
     motor(6, 200, 200, 200, 200);
   }
   else {

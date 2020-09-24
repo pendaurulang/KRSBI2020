@@ -8,13 +8,13 @@ void ballshot_init() {
   digitalWrite(ballpass, LOW);
 }
 void tendang() {
-  digitalWrite(ballsht, LOW);
-  delay(50);
   digitalWrite(ballsht, HIGH);
+  delay(100);
+  digitalWrite(ballsht, LOW);
 }
 
 void umpan() {
-  digitalWrite(ballpass, LOW);
-  delay(50);
   digitalWrite(ballpass, HIGH);
+  delay(100);
+  digitalWrite(ballpass, LOW);
 }

@@ -1,6 +1,6 @@
 #include "motor.h"
 
-double Sp = 10, pw = 250;
+double Sp = 10, pw = 220;
 double np = 10, ni = 2, nd = 0, Pv, l_pv, Ts, error = 0, l_error = 0, l_output, output; //nilai variable pada PID
 double ys, l;
 double ki, ka;
@@ -28,6 +28,6 @@ void test(int obj, int movement)
     ka = pw;
   };
   //if (output < 1 ) {output=1;};
-  motor(movement, ka, ki-25, ka, ki);
+  motor(movement, ki, ka, ki, ka);
   //Serial.print();
 }
