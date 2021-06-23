@@ -30,3 +30,11 @@ open terminal/shell on current folder an run this
 ```
 python3 main.py
 ```
+run monitoring arduino with
+```
+screen /dev/ttyACM0 9600
+```
+or
+```
+screen /dev/ttyACM1 9600
+```
