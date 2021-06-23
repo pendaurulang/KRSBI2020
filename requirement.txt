@@ -1,0 +1,5 @@
+numpy
+serial
+imutils
+RPi.GPIO
+opencv-python
