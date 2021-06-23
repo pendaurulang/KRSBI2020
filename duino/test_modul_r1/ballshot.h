@@ -18,3 +18,13 @@ void umpan() {
   delay(100);
   digitalWrite(ballpass, LOW);
 }
+
+void tendangtest(){
+  tendang();
+  delay(5000);
+}
+
+void umpantest(){
+  umpan();
+  delay(5000);
+}

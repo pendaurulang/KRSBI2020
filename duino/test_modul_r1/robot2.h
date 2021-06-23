@@ -17,7 +17,7 @@ void kondisi2r2() {
   kondisi = "kondisi 2 r2";
   kondisi_set = 12;
   delay(5000);
-  if (valballdtc < 150 && valballdtc != 0 ) {
+  if (valballdtc < ball_thd1 ) {
     delay(5000);
     kondisi_set = 13;
   }

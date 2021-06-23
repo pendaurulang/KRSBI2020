@@ -1,9 +1,9 @@
 int rot;
 
 void rotate(int dir, int par) {
-  int rot = (abs(par) / 160) * 220;
-  if (rot > 250) {
-    rot = 250;
+  int rot = (abs(par) / 160) * 200;
+  if (rot > 200) {
+    rot = 200;
   }
   motor(dir, rot, rot, rot, rot);
 }

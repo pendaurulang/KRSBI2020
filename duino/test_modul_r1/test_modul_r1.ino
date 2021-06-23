@@ -1,7 +1,9 @@
 String kondisi = "null";
 int kondisi_set = 0;
-int line_thd1 = 57; //kalibrasi sensor garis
+int line_thd1 = 250; //kalibrasi sensor garis
+int linethd_kiri = 250;
 int ball_thd1 = 150; //kalibrasi sensor bola (ball grab)
+int ball_thd = 400;
 
 #include "sensor.h"
 //#include "bluetooth.h"
@@ -15,6 +17,7 @@ int ball_thd1 = 150; //kalibrasi sensor bola (ball grab)
 #include "robot1.h"
 #include "robot2.h"
 #include "kiper.h"
+#include "emergency.h"
 
 void setup() {
   sensor_init();
@@ -22,7 +25,7 @@ void setup() {
   ballshot_init();
   serialinit();
   motorinit();
-  kondisi_set = 1;
+  kondisi_set = 6;
   //  bluetooth_init();
 }
 
@@ -32,8 +35,9 @@ void loop() {
   //  bluetooth();
   getimg();
   grabball();
-  monitoring();
   remote();
+  monitoring();
+
 
   //  if (rimut == 1) {
   //    remote();
@@ -44,22 +48,18 @@ void loop() {
 }
 
 void remote() {
-  //  kondisi1();
   robot1();
 }
 
 void robot1() {
 
-  if (kondisi_set == 6) {
-    //        kondisi6();
-  }
   if (kondisi_set == 5) {
-    kondisi5();
     kondisi_set = 5;
+    kondisi5();
   }
   if (kondisi_set == 4) {
-    kondisi4();
     kondisi_set = 4;
+    kondisi4();
   }
   if (kondisi_set == 3) {
     kondisi_set = 3;
@@ -72,6 +72,10 @@ void robot1() {
   if (kondisi_set == 1) {
     kondisi_set = 1;
     kondisi1();
+  }
+  if (kondisi_set == 6) {
+    kondisi_set = 6;
+    kondisi_kiri();
   }
 
 }

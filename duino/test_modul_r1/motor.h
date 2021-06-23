@@ -54,14 +54,14 @@ void motor(char po, char pwm1, char pwm2, char pwm3, char pwm4) //MOTOR
   };
   if (po == 2) //mundur
   {
-    digitalWrite(in1, LOW);
+    digitalWrite(in1, HIGH);
     digitalWrite(in2, LOW);
-    digitalWrite(in3, LOW);
+    digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
     digitalWrite(in5, LOW);
-    digitalWrite(in6, LOW);
+    digitalWrite(in6, HIGH);
     digitalWrite(in7, LOW);
-    digitalWrite(in8, LOW);
+    digitalWrite(in8, HIGH);
   };
   if (po == 3) //kiri
   {
